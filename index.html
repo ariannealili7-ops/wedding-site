@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arianne & Junnel</title>
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
@@ -14,77 +13,84 @@
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Montserrat', sans-serif;
+    html {
+      scroll-behavior: smooth;
     }
 
-    /* NAV */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f5f1eb;
+    }
+
     .nav {
       position: absolute;
-      top: 25px;
+      top: 28px;
       left: 0;
       width: 100%;
-      padding: 0 40px;
+      padding: 0 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
+      z-index: 20;
     }
 
     .nav-left {
       color: white;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
+      font-size: 20px;
+      font-style: italic;
       letter-spacing: 2px;
     }
 
     .nav-right a {
       color: white;
-      margin-left: 25px;
+      text-decoration: none;
+      margin-left: 26px;
       font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      text-decoration: none;
     }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       background:
-        linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.35)),
-        url('YOUR_IMAGE_LINK_HERE') center/cover no-repeat;
-
+        linear-gradient(rgba(0,0,0,0.22), rgba(0,0,0,0.30)),
+        url('hero.jpg') center center / cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       color: white;
+      padding: 20px;
     }
 
     .hero-content {
-      transform: translateY(-20px);
+      max-width: 1000px;
+      width: 100%;
+      transform: translateY(-10px);
     }
 
     .tagline {
-      font-size: 11px;
+      font-size: 12px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 96px;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .hero-date {
+      margin-top: 24px;
+      font-size: 13px;
       letter-spacing: 4px;
-      margin-bottom: 15px;
       text-transform: uppercase;
     }
 
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 80px;
-      font-weight: 400;
-    }
-
-    .date {
-      margin-top: 20px;
-      font-size: 12px;
-      letter-spacing: 3px;
-    }
-
-    /* SECTION */
     section {
       padding: 80px 20px;
       text-align: center;
@@ -92,25 +98,56 @@
 
     h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
-      margin-bottom: 20px;
+      font-size: 42px;
+      font-weight: 400;
+      margin-bottom: 18px;
     }
 
     p {
-      max-width: 600px;
-      margin: auto;
-      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+      color: #5f5953;
     }
 
+    @media (max-width: 900px) {
+      .hero h1 {
+        font-size: 64px;
+      }
+
+      .nav-right a {
+        margin-left: 14px;
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .nav-right {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .tagline,
+      .hero-date {
+        letter-spacing: 2px;
+      }
+    }
   </style>
 </head>
-
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
-    <div class="nav-left">A & J</div>
-
+    <div class="nav-left">A &amp; J</div>
     <div class="nav-right">
       <a href="#story">Our Story</a>
       <a href="#ceremony">Ceremony</a>
@@ -120,52 +157,37 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <div class="tagline">— An Intimate Wedding —</div>
-      <h1>Arianne & Junnel</h1>
-      <div class="date">August 17, 2026 • 9:00 AM</div>
+      <h1>Arianne &amp; Junnel</h1>
+      <div class="hero-date">August 17, 2026</div>
     </div>
   </section>
 
-  <!-- STORY -->
   <section id="story">
     <h2>Our Story</h2>
-    <p>
-      Our journey began with simple moments that grew into something beautiful.  
-      From laughter to challenges, we found love in every step.
-    </p>
+    <p>Our story is one of grace, growth, and love. What began in simple moments became a beautiful journey we now get to share forever.</p>
   </section>
 
-  <!-- CEREMONY -->
   <section id="ceremony">
     <h2>Ceremony</h2>
-    <p>
-      The Courtyard at Chateau Veronica  
-      Davao City, Philippines  
-      3:00 PM
-    </p>
+    <p>The Courtyard at Chateau Veronica, Davao City, Philippines</p>
   </section>
 
-  <!-- ATTIRE -->
   <section id="attire">
     <h2>Attire</h2>
-    <p>
-      Dress in soft hues of champagne, blush, and neutrals.
-    </p>
+    <p>Dress in soft elegant tones that match our celebration.</p>
   </section>
 
-  <!-- GALLERY -->
   <section id="gallery">
     <h2>Gallery</h2>
-    <p>Photos coming soon 💕</p>
+    <p>Our favorite memories, all in one place.</p>
   </section>
 
-  <!-- RSVP -->
   <section id="rsvp">
     <h2>RSVP</h2>
-    <p>Please confirm your attendance.</p>
+    <p>Please confirm your attendance on or before August 15, 2026.</p>
   </section>
 
 </body>
