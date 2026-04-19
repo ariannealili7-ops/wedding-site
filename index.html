@@ -4,22 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arianne & Junnel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #f4efe9;
+      --bg-dark: #111814;
+      --text: #2d2926;
+      --muted: #6f6962;
+      --label: #8b7d72;
+      --white: #ffffff;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    html {
       scroll-behavior: smooth;
     }
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background: #f5f1eb;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
     .nav {
@@ -27,7 +47,7 @@
       top: 28px;
       left: 0;
       width: 100%;
-      padding: 0 28px;
+      padding: 0 38px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -35,17 +55,16 @@
     }
 
     .nav-left {
-      color: white;
+      color: var(--white);
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
       font-style: italic;
+      font-size: 18px;
       letter-spacing: 2px;
     }
 
     .nav-right a {
-      color: white;
-      text-decoration: none;
-      margin-left: 26px;
+      color: var(--white);
+      margin-left: 28px;
       font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -54,13 +73,13 @@
     .hero {
       min-height: 100vh;
       background:
-        linear-gradient(rgba(0,0,0,0.22), rgba(0,0,0,0.30)),
+        linear-gradient(rgba(0,0,0,0.22), rgba(0,0,0,0.32)),
         url('hero.jpg') center center / cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: white;
+      color: var(--white);
       padding: 20px;
     }
 
@@ -79,9 +98,10 @@
 
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 96px;
+      font-size: 82px;
       font-weight: 300;
       line-height: 1;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.25);
     }
 
     .hero-date {
@@ -91,46 +111,266 @@
       text-transform: uppercase;
     }
 
-    section {
-      padding: 80px 20px;
+    .section {
+      padding: 100px 20px;
+    }
+
+    .light {
+      background: var(--bg);
+    }
+
+    .dark {
+      background: var(--bg-dark);
+      color: var(--white);
+    }
+
+    .wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 90px;
+    }
+
+    .reverse {
+      flex-direction: row-reverse;
+    }
+
+    .text-block {
+      width: 100%;
+      max-width: 470px;
+      text-align: left;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--label);
+      margin-bottom: 16px;
+    }
+
+    .dark .section-label {
+      color: rgba(255,255,255,0.68);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .text-block p {
+      font-size: 14px;
+      line-height: 1.95;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .dark .text-block p,
+    .dark .center-copy,
+    .dark .meta {
+      color: rgba(255,255,255,0.82);
+    }
+
+    .image-block {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .image-block img {
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.10);
+    }
+
+    .center-intro {
+      max-width: 900px;
+      margin: 0 auto 40px;
       text-align: center;
     }
 
-    h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 42px;
-      font-weight: 400;
-      margin-bottom: 18px;
+    .center-intro .section-title {
+      margin-bottom: 12px;
     }
 
-    p {
+    .center-copy {
       max-width: 700px;
       margin: 0 auto;
-      line-height: 1.8;
-      color: #5f5953;
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--muted);
     }
 
-    @media (max-width: 900px) {
+    .meta {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .maps-link {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .palette {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .palette-item {
+      text-align: center;
+      min-width: 60px;
+    }
+
+    .swatch {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .swatch-name {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--label);
+    }
+
+    .gallery-grid {
+      max-width: 1120px;
+      margin: 40px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-card img {
+      height: 300px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 16px 35px rgba(0,0,0,0.08);
+    }
+
+    .gallery-card p {
+      text-align: center;
+      color: var(--label);
+      margin-top: 10px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .rsvp-card {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #fbf8f4;
+      border-radius: 28px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+      padding: 64px 30px;
+      text-align: center;
+    }
+
+    .rsvp-card .section-title {
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    .rsvp-note {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 14px;
+      line-height: 1.95;
+      color: var(--muted);
+    }
+
+    .rsvp-button {
+      display: inline-block;
+      margin-top: 28px;
+      background: #1a1a1a;
+      color: var(--white);
+      padding: 15px 34px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .thanks {
+      margin-top: 42px;
+    }
+
+    .thanks h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-style: italic;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .thanks p {
+      color: var(--label);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 20px 38px;
+      color: var(--label);
+      font-size: 13px;
+      background: var(--bg);
+    }
+
+    @media (max-width: 980px) {
+      .wrapper {
+        gap: 48px;
+      }
+
       .hero h1 {
         font-size: 64px;
       }
 
-      .nav-right a {
-        margin-left: 14px;
-        font-size: 10px;
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 760px) {
       .nav {
         flex-direction: column;
         gap: 14px;
+        padding: 0 20px;
       }
 
       .nav-right {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        text-align: center;
+      }
+
+      .nav-right a {
+        margin: 0 10px;
+        display: inline-block;
+      }
+
+      .wrapper,
+      .reverse {
+        flex-direction: column;
+      }
+
+      .text-block {
+        text-align: center;
       }
 
       .hero h1 {
@@ -140,6 +380,18 @@
       .tagline,
       .hero-date {
         letter-spacing: 2px;
+      }
+
+      .section-title {
+        font-size: 26px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-card img {
+        height: 260px;
       }
     }
   </style>
@@ -165,43 +417,148 @@
     </div>
   </section>
 
-  <section id="story" class="story">
-  <div class="story-container">
+  <section id="story" class="section light">
+    <div class="wrapper">
+      <div class="text-block">
+        <div class="section-label">I. — Our Story</div>
+        <h2 class="section-title">A trail we walked<br>into together</h2>
+        <p>
+          Our journey began with simple moments that turned into something beautiful.
+          Through every season, we found love, growth, and a home in each other.
+        </p>
+        <p>
+          From quiet walks to unforgettable adventures, every step brought us closer
+          to this forever.
+        </p>
+      </div>
 
-    <div class="story-image">
-      <img src="story.jpg" alt="Our Story">
+      <div class="image-block">
+        <img src="story.jpg" alt="Our story photo">
+      </div>
+    </div>
+  </section>
+
+  <section id="ceremony" class="section dark">
+    <div class="wrapper reverse">
+      <div class="text-block">
+        <div class="section-label">II. — Ceremony</div>
+        <h2 class="section-title">Where we say<br>I do</h2>
+        <p>
+          We would be honored to celebrate this sacred moment with you as we exchange
+          vows and begin our forever.
+        </p>
+        <div class="meta">
+          The Courtyard at Chateau Veronica<br>
+          Davao City, Philippines<br>
+          August 17, 2026 • 9:00 AM
+        </div>
+        <a
+          class="maps-link"
+          href="https://www.google.com/maps/search/?api=1&query=The+Courtyard+at+Chateau+Veronica+Davao"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open in Google Maps →
+        </a>
+      </div>
+
+      <div class="image-block">
+        <img src="ceremony.jpg" alt="Ceremony photo">
+      </div>
+    </div>
+  </section>
+
+  <section id="attire" class="section light">
+    <div class="wrapper">
+      <div class="text-block">
+        <div class="section-label">III. — Attire</div>
+        <h2 class="section-title">Dressed in<br>honey haze</h2>
+        <p>
+          We would love to see you in soft romantic tones that match the warmth
+          of our celebration.
+        </p>
+
+        <div class="palette">
+          <div class="palette-item">
+            <div class="swatch" style="background:#e7cfc5;"></div>
+            <div class="swatch-name">Blush</div>
+          </div>
+          <div class="palette-item">
+            <div class="swatch" style="background:#d9d2cc;"></div>
+            <div class="swatch-name">Pearl</div>
+          </div>
+          <div class="palette-item">
+            <div class="swatch" style="background:#e2cdb8;"></div>
+            <div class="swatch-name">Champagne</div>
+          </div>
+          <div class="palette-item">
+            <div class="swatch" style="background:#d8b1a5;"></div>
+            <div class="swatch-name">Rose</div>
+          </div>
+          <div class="palette-item">
+            <div class="swatch" style="background:#b08f87;"></div>
+            <div class="swatch-name">Mauve</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="image-block">
+        <img src="attire.jpg" alt="Attire inspiration">
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section light">
+    <div class="center-intro">
+      <div class="section-label">IV. — Gallery</div>
+      <h2 class="section-title">Moments we cherish</h2>
+      <p class="center-copy">A few memories we’ll always carry with us.</p>
     </div>
 
-    <div class="story-text">
-      <h2>Our Story</h2>
-      <p>
-        Our journey began with simple moments that turned into something beautiful.
-        Through every season, we found love, growth, and a home in each other.
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="gallery1.jpg" alt="Gallery 1">
+        <p>Where it all began</p>
+      </div>
+      <div class="gallery-card">
+        <img src="gallery2.jpg" alt="Gallery 2">
+        <p>Little adventures</p>
+      </div>
+      <div class="gallery-card">
+        <img src="gallery3.jpg" alt="Gallery 3">
+        <p>Favorite days</p>
+      </div>
+      <div class="gallery-card">
+        <img src="gallery4.jpg" alt="Gallery 4">
+        <p>The road to forever</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp" class="section light">
+    <div class="rsvp-card">
+      <div class="section-label">V. — RSVP</div>
+      <h2 class="section-title">Will you join us?</h2>
+      <p class="rsvp-note">
+        Kindly respond on or before <strong>August 15, 2026</strong>.<br><br>
+        Due to the intimate nature of our celebration and limited venue capacity,
+        we kindly ask that this invitation is exclusively yours.
       </p>
+
+      <a class="rsvp-button" href="mailto:your@email.com?subject=RSVP%20for%20Arianne%20and%20Junnel">
+        RSVP
+      </a>
+
+      <div class="thanks">
+        <h3>Thank you</h3>
+        <p>We can’t wait to celebrate this special day with you.</p>
+      </div>
     </div>
-
-  </div>
-</section>
-
-  <section id="ceremony">
-    <h2>Ceremony</h2>
-    <p>The Courtyard at Chateau Veronica, Davao City, Philippines</p>
   </section>
 
-  <section id="attire">
-    <h2>Attire</h2>
-    <p>Dress in soft elegant tones that match our celebration.</p>
-  </section>
-
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <p>Our favorite memories, all in one place.</p>
-  </section>
-
-  <section id="rsvp">
-    <h2>RSVP</h2>
-    <p>Please confirm your attendance on or before August 15, 2026.</p>
-  </section>
+  <footer>
+    Made with love for our family and friends.
+  </footer>
 
 </body>
 </html>
