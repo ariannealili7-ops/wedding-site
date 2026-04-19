@@ -10,14 +10,19 @@
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: #111;
-      color: white;
+      background: #f5f2ec;
+      color: #333;
+    }
+
+    .section {
+      padding: 80px 20px;
       text-align: center;
     }
 
     .hero {
       height: 100vh;
       background: url('https://images.unsplash.com/photo-1519741497674-611481863552') center/cover no-repeat;
+      color: white;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -29,24 +34,60 @@
       font-weight: 300;
     }
 
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 300;
+      font-size: 36px;
+    }
+
     .subtitle {
-      letter-spacing: 6px;
+      letter-spacing: 5px;
       font-size: 12px;
     }
 
-    .date {
-      margin-top: 20px;
-      font-size: 14px;
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
+
   </style>
 </head>
 
 <body>
 
+  <!-- HERO -->
   <div class="hero">
     <p class="subtitle">— AN INTIMATE WEDDING —</p>
     <h1>Arianne & Junnel</h1>
-    <p class="date">August 17, 2026 • 9:00 AM</p>
+    <p>August 17, 2026 • 9:00 AM</p>
+  </div>
+
+  <!-- CEREMONY -->
+  <div class="section">
+    <h2>The Ceremony</h2>
+    <p>The Courtyard at Chateau Veronica</p>
+    <p>Davao City, Philippines</p>
+  </div>
+
+  <!-- ATTIRE -->
+  <div class="section">
+    <h2>Dress Code</h2>
+    <p>Honey haze tones — nudes, blush, champagne</p>
+  </div>
+
+  <!-- RSVP -->
+  <div class="section">
+    <div class="card">
+      <h2>Will you join us?</h2>
+      <p>Please RSVP before August 15</p>
+      <button style="padding:10px 20px; border:none; background:black; color:white; border-radius:10px;">
+        RSVP
+      </button>
+    </div>
   </div>
 
 </body>
