@@ -17,6 +17,9 @@
       --muted: #6f6962;
       --label: #8b7d72;
       --white: #ffffff;
+      --card: #fbf8f4;
+      --border: #ddd4ca;
+      --button: #1a1a1a;
     }
 
     * {
@@ -277,7 +280,7 @@
     .rsvp-card {
       max-width: 760px;
       margin: 0 auto;
-      background: #fbf8f4;
+      background: var(--card);
       border-radius: 28px;
       box-shadow: 0 18px 40px rgba(0,0,0,0.08);
       padding: 64px 30px;
@@ -291,22 +294,62 @@
 
     .rsvp-note {
       max-width: 620px;
-      margin: 0 auto;
+      margin: 0 auto 30px;
       font-size: 14px;
       line-height: 1.95;
       color: var(--muted);
     }
 
-    .rsvp-button {
-      display: inline-block;
-      margin-top: 28px;
-      background: #1a1a1a;
+    .rsvp-form {
+      max-width: 520px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-align: left;
+    }
+
+    .rsvp-form input,
+    .rsvp-form select,
+    .rsvp-form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+    }
+
+    .rsvp-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .rsvp-form input:focus,
+    .rsvp-form select:focus,
+    .rsvp-form textarea:focus {
+      border-color: #b9a99a;
+    }
+
+    .rsvp-form button {
+      margin-top: 4px;
+      background: var(--button);
       color: var(--white);
-      padding: 15px 34px;
+      padding: 15px 20px;
+      border: none;
       border-radius: 999px;
       font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .rsvp-form button:hover {
+      opacity: 0.95;
     }
 
     .thanks {
@@ -393,6 +436,10 @@
 
       .gallery-card img {
         height: 260px;
+      }
+
+      .rsvp-card {
+        padding: 50px 22px;
       }
     }
   </style>
@@ -546,14 +593,31 @@
         we kindly ask that this invitation is exclusively yours.
       </p>
 
-      <a
-        class="rsvp-button"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfyj28xo0kxjx9G5LqRUZbmFLNoKQSLCkX1VXM8JBiC2wOySA/viewform?usp=header"
-        target="_blank"
-        rel="noopener noreferrer"
+      <form
+        action="YOUR_FORMSPREE_LINK_HERE"
+        method="POST"
+        class="rsvp-form"
       >
-        RSVP
-      </a>
+        <input type="text" name="name" placeholder="Full Name" required>
+
+        <select name="attendance" required>
+          <option value="">Will you attend?</option>
+          <option value="Yes, I will be there">Yes, I will be there</option>
+          <option value="Sorry, I can't come">Sorry, I can’t come</option>
+        </select>
+
+        <select name="guests">
+          <option value="">Number of Guests</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+
+        <textarea name="message" placeholder="Message for the couple"></textarea>
+
+        <button type="submit">Send RSVP</button>
+      </form>
 
       <div class="thanks">
         <h3>Thank you</h3>
